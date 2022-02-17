@@ -5,10 +5,10 @@
     --dark-gray: #3D5467;
     --blue: #3E57A8;
     --yellow: #FFB61A;
-    --green: #FFB61A;
+    --green: #00A676;
     --bg-color: var(--light-gray);
     --not-in-word: var(--blue);
-    --wrong-spot: var(--yellow);
+    --in-spot: var(--yellow);
     --correct-spot: var(--green);
     --default-color: var(--dark-gray);
 }
@@ -31,6 +31,21 @@ html {
     height: 1em;
     text-align: center;
 }
+
+.in-word {
+    background-color: var(--in-spot);
+}
+
+.correct-spot {
+    background-color: var(--correct-spot);
+}
+
+.not-in-word {
+    background-color: var(--not-in-word);
+}
+
+
+.span-col-5{grid-column: span 5 / auto;}
 
 #board {
     display: grid;
