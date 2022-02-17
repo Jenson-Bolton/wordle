@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --light-gray: #F5E6E8;
+    --dark-gray: #3D5467;
+    --blue: #3E57A8;
+    --yellow: #FFB61A;
+    --green: #FFB61A;
+    --bg-color: var(--light-gray);
+    --not-in-word: var(--blue);
+    --wrong-spot: var(--yellow);
+    --correct-spot: var(--green);
+    --default-color: var(--dark-gray);
+}
+
+body,
+html {
+    background-color: var(--bg-color);
+    font-family: 'Rubik', Helvetica, sans-serif;
+}
+
+.box {
+    background-color: var(--default-color);
+    border-radius: 0.25em;
+    color: var(--bg-color);
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1em;
+    padding: 0.5em;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    max-width: calc(20em + 40px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
