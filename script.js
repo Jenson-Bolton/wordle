@@ -31,26 +31,31 @@ window.addEventListener('keydown', (e) => {
 });
 
 function checkGuess(wordGuessed) {
-    randomWord = words[randomNum].split('');
-    for (i = 0; i < 5; i++) {
-        console.log(randomWord[i]);
-        if (randomWord[i] == wordGuessed[i].toUpperCase()) {
-            document.getElementById(String((line - 1)*5 + i + 1)).classList.add('correct-spot');
-            correct++;
+    if (words.includes(wordGuessed.join())) {
+        randomWord = words[randomNum].split('');
+        for (i = 0; i < 5; i++) {
+            console.log(randomWord[i]);
+            if (randomWord[i] == wordGuessed[i].toUpperCase()) {
+                document.getElementById(String((line - 1)*5 + i + 1)).classList.add('correct-spot');
+                correct++;
+            }
+            else if (randomWord.includes(wordGuessed[i].toUpperCase())) {
+                document.getElementById(String((line - 1)*5 + i + 1)).classList.add('in-word');
+            }
+            else {
+                document.getElementById(String((line - 1)*5 + i + 1)).classList.add('not-in-word');
+            }
         }
-        else if (randomWord.includes(wordGuessed[i].toUpperCase())) {
-            document.getElementById(String((line - 1)*5 + i + 1)).classList.add('in-word');
+        if (correct == 5) {
+            console.log("won");
+            won();
         }
-        else {
-            document.getElementById(String((line - 1)*5 + i + 1)).classList.add('not-in-word');
-        }
-    }
-    if (correct == 5) {
-        console.log("won");
-        won();
-    }
 
-    correct = 0;
+        correct = 0;
+    }
+    else {
+        console.log("not a word");
+    }
 }
 
 function won() {
